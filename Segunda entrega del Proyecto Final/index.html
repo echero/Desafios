@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>TuplazoFijo</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      .container {
+        max-width: 960px;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .ocultar{
+        display: none;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="/css/form-validation.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    <div class="row">
+      <img src="https://media.a24.com/p/a07b0dbc20901f371cb550fd3c3fccf2/adjuntos/296/imagenes/008/991/0008991001/1200x675/smart/plazos-fijos-pesosjpg.jpg" class="img-fluid" style="height: 300px;">
+    </div>
+    
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      
+      <h2>TuplazoFijo</h2>
+      <p class="lead">Este es el simulador de tu plazo fijo Tradicional y Precancelable, con la posibilidad de crear tu plazo fijo en el acto. Tambien te da la posibilidad de ir monitoreando tus ganancias con los mismos.</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Tus plazos fijos Tradicionales</span>
+          <span class="badge bg-primary rounded-pill" id="cantT"></span>
+        </h4>
+        <ul class="list-group mb-3" id="listaDerechaT">
+          <p>No dispone de plazos fijos vigentes!</p>
+        </ul>
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-danger">Tus plazos fijos Precancelables</span>
+          <span class="badge bg-danger rounded-pill" id="cantC"></span>
+        </h4>
+        <ul class="list-group mb-3" id="listaDerechaC">
+          <p>No dispone de plazos fijos vigentes!</p>
+        </ul>
+
+        <button type="button" class="btn btn-primary btn-sm" id="botonVer">Ver</button>
+        <button type="button" class="btn btn-secondary btn-sm" id="botonOcultar" >Ocultar</button>
+      </div>
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Simulá y constituí tu Plazo Fijo</h4>
+
+        <form id="formPlazoFijo" class="needs-validation">
+          <div class="row g-3">
+            <div class="col-12">
+              <label for="monto" class="form-label">Monto</label>
+              <input type="number" class="form-control" name="monto" required>
+              <div class="invalid-feedback">
+                Por favor ingrese un monto!
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="cantDias" class="form-label">Cantidad de días</label>
+              <input type="number" class="form-control" name="cantDias" required>
+              <div class="invalid-feedback">
+                Por favor ingrese una cantidad de días!
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="tipoPlazoFijo" class="form-label">Tipo de Plazo Fijo</label>
+              <select class="form-select" name="tipoPlazoFijo" required>
+                <option value="">Elegir tipo de Plazo Fijo</option>
+                <option value="T">Tradicional</option>
+                <option value="P">Precancelable</option>
+              </select>
+              <div class="invalid-feedback">
+                Por favor elegir un tipo de plazo fijo!
+              </div>
+            </div>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit" id="btn1">Continuar</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <section class="mt-5">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary" id="botonHistorial">Historial</button>
+      <button type="button" class="btn btn-primary" id="botonNuevos">Nuevos</button>
+      <button type="button" class="btn btn-primary" id="botonRendimiento">Rendimientos</button>
+    </div>
+
+    <div class="row mt-3" id="tarjetas">
+      
+    </div>
+
+  </section>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2022 TuplazoFijo</p>
+  </footer>
+</div>
+
+<script type="module" src="./js/script.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<!-- <script src="js/form-validation.js"></script> -->
+
+  </body>
+</html>
